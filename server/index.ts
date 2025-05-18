@@ -101,7 +101,7 @@ app.get("/cart", async (req, res) => {
 
     // Get product details for each cart item
     const cartItemsWithProducts = await Promise.all(
-      cartItems.map(async (item) => {
+      cartItems.map(async (item: { productId: any }) => {
         const product = await prisma.product.findUnique({
           where: { id: item.productId },
         })
@@ -189,7 +189,7 @@ const getAverageOrderPerUser = async () => {
     },
   })
 
-  return users.map((user) => {
+  return users.map((user: { orders: any[]; id: any; name: any }) => {
     const totalOrders = user.orders.reduce((sum, order) => sum + Number(order.total), 0)
     const averageOrder = user.orders.length > 0 ? totalOrders / user.orders.length : 0
 

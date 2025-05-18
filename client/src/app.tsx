@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Search, ShoppingCart } from "lucide-react"
 import ProductCard from "./components/product-card"
 import Sidebar from "./components/sidebar"
-import { calculateDiscount } from "./utils/discount"
+//import { calculateDiscount } from "./utils/discount"
 import type { Product } from "./types"
 
 function App() {
@@ -57,8 +57,8 @@ function App() {
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0)
 
   // Example of using the discount calculator
-  const totalAmount = cart.reduce((total, item) => total + item.product.price * item.quantity, 0)
-  const discountedTotal = calculateDiscount(totalAmount, true, "DISKON20")  
+  //const totalAmount = cart.reduce((total, item) => total + item.product.price * item.quantity, 0)
+  //const discountedTotal = calculateDiscount(totalAmount, true, "DISKON20")  
   
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
